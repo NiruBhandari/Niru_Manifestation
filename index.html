@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Niru's love unlock 💘</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOCK SCREEN -->
+<div id="lockScreen">
+  <h2>🔐 Love Locked</h2>
+  <input type="password" id="pass" placeholder="Enter Love Code 😉">
+  <button onclick="unlock()">Unlock</button>
+  <p>Hint: _ loves _ more </p>
+  <p>small letter</p>
+</div>
+
+<script>
+function unlock() {
+  if (document.getElementById("pass").value === "niru loves pranab more") {
+    window.location.href = "propose.html";
+  } else {
+    alert("Wrong code 😤");
+  }
+}
+</script>
+
+</body>
+</html>

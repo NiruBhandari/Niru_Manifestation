@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Niru's proposal💘</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  
+  @keyframes fireworks {
+    0% { transform: scale(0.1); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+  }
+  .firework {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ff69b4, #ff1493);
+    width: 20px;
+    height: 20px;
+    animation: fireworks 1s ease-out forwards;
+  }
+</style>
+</head>
+<body>
+
+<!-- PROPOSAL POPUP -->
+<div id="proposalOverlay">
+  <div id="proposalBox">
+    <h1>Pranab, Please be my Valentine😭😘</h1>
+    <img src="ring.gif" width="200">
+    <button onclick="acceptLove()">YES 💖</button>
+    <button onclick="rejectLove()">NO 😤</button>
+  </div>
+</div>
+
+<script>
+// YES BUTTON CLICK
+function acceptLove() {
+  // Show fireworks animation
+  for(let i=0;i<20;i++){
+    const fire = document.createElement("div");
+    fire.className = "firework";
+    fire.style.top = Math.random() * window.innerHeight + "px";
+    fire.style.left = Math.random() * window.innerWidth + "px";
+    document.body.appendChild(fire);
+    setTimeout(()=>fire.remove(), 1000);
+  }
+
+  setTimeout(()=>{
+    window.location.href = "promise.html";
+  }, 1200);
+}
+
+function rejectLove() {
+  let btn = document.querySelector("#proposalBox button:last-child");
+  btn.style.position = "absolute";
+  btn.style.left = Math.random() * 80 + "%";
+  btn.style.top = Math.random() * 80 + "%";
+}
+</script>
+
+<script src="chatbot.js"></script>
+<script src="game.js"></script>
+
+</body>
+</html>

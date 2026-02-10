@@ -1,0 +1,193 @@
+body {
+  background: linear-gradient(135deg, #ff2d55, #ffb6c1);
+  color: white;
+  font-family: monospace;
+  text-align: center;
+}
+
+.hidden { display:none; }
+
+#lockScreen {
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:black;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+}
+input, button {
+  padding:10px;font-size:16px;margin:5px;
+}
+
+.gallery img {
+  width:150px;height:150px;border-radius:15px;
+  border:3px solid white;margin:10px;
+}
+
+
+#chatBox {
+  background:black;padding:10px;border:2px solid pink;width:300px;margin:auto;
+}
+#chatLog {
+  height:150px;overflow:auto;background:#111;padding:5px;margin-bottom:5px;
+}
+
+#game span {
+  font-size: 40px;
+  cursor:pointer;
+  margin:10px;
+}
+
+
+.gallery img {
+  width:150px;
+  height:150px;
+  object-fit:cover;
+  border-radius:15px;
+  border:3px solid white;
+  margin:10px;
+}
+
+
+
+#proposal {
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.9);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  color:pink;font-size:2rem;
+}
+
+.buttons button {
+  padding: 12px 25px;
+  font-size: 18px;
+  margin: 10px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.buttons button:first-child {
+  background: hotpink;
+  color: white;
+}
+
+.buttons button:last-child {
+  background: black;
+  color: white;
+}
+/* Blur everything when proposal appears */
+.blur {
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+/* Proposal Overlay */
+#proposalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+
+#proposalBox {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(15px);
+  border: 2px solid pink;
+  color: white;
+}
+
+
+#proposalBox button {
+  padding: 12px 30px;
+  font-size: 20px;
+  background: hotpink;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+#proposalBox button:hover {
+  background: #ff2d55;
+}
+
+/* Gallery hover effect */
+.gallery img {
+  width: 150px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px pink;
+}
+
+
+#photoOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: indianred;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+#photoOverlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#photoOverlay img.enlarged {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 20px;
+  box-shadow: 0 0 30px pink;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+#closeOverlay {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+#closeOverlay:hover {
+  color: pink;
+}
+
+/* Hearts animation */
+.heart {
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(circle, #ff69b4, #ff1493);
+  clip-path: polygon(50% 0%, 61% 13%, 75% 13%, 85% 25%, 85% 38%, 75% 50%, 50% 80%, 25% 50%, 15% 38%, 15% 25%, 25% 13%, 39% 13%);
+  animation: floatUp linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(0.5); opacity: 0.8; }
+  100% { transform: translateY(-800px) scale(1.5); opacity: 0; }
+}

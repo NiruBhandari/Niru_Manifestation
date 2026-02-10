@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Niru's love for Pranab 💘</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div id="mainUI">
+
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <h1>💘Mero PRANAB</h1>
+  <h2 id="typing"></h2>
+
+  <div id="countdown"></div>
+
+  <!-- Mini Game -->
+  <h2>🎮 Collect Hearts to Unlock Manifestation</h2>
+  <div id="game"></div>
+  <p id="secret" class="hidden">Pranab! mero mutu please be my valentine forver 💍</p>
+
+  <!-- Chatbot -->
+  <div id="chatBox">
+    <h3>🤖 Your Niru</h3>
+    <div id="chatLog"></div>
+    <input id="userInput" placeholder="Type here...">
+    <button onclick="sendChat()">Send</button>
+  </div>
+
+
+  <!-- Photos -->
+<h2>💑 Our Memories</h2>
+<div class="gallery">
+  <img src="photo1.jpg" class="photo">
+  <img src="photo2.jpg" class="photo">
+  <img src="photo3.jpg" class="photo">
+</div>
+
+
+<div id="photoOverlay" class="hidden">
+  <span id="closeOverlay">&times;</span>
+  <img id="fullPhoto">
+  <div id="heartsContainer"></div>
+</div>
+
+
+  <footer>Made by Niru with infinite love ❤️</footer>
+
+</div>
+
+<script>
+
+let text = "Dear Pranab, Welcome to my heart 💖";
+let i = 0;
+function typeText() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text[i++];
+    setTimeout(typeText, 60);
+  }
+}
+typeText();
+
+
+let date = new Date("2026-02-14");
+setInterval(() => {
+  let d = (date - new Date()) / (1000*60*60*24);
+  document.getElementById("countdown").innerHTML = "⏳ Days till Valentine: " + Math.floor(d);
+}, 1000);
+
+
+let promises = [
+"I really wish and want to be your safe place where you can let your heart out . Please share everything with me either it can be happiness, sorrow, dissapointment,etc 😘😘😘 ",
+"I want to grow with you so i want you to show me right path , i am so clumsy, dumb please make decisions for me and i want you to be the reason for my success and i want me to be the reason behind your success as well. 😍😍😍",
+"I really hope you will never be bored of me as i am not that of interesting person. Please laugh at my jokes even if it is not funny 🥰🥰🥰",
+"Dont judge me and always trust me. I will never break your trust and i am very devoted toward you. Malai ni kaile dhoka nadinu i know didainau i trust you blindly. 😩😩😩",
+"I respect you deeply . Your each and every word matters to me a lot. So please listen and understand me . Give importance to my opinions as well because i always seek validation from you. I determine my smartness or dumbness level through you. Tmro response ma basis my confidence level fluctuates 🥰🥰🥰",
+"Yespali ma tmelai dang laijan6u. Tmelai ma mero ghar pariwar sanga haso majak gareko herna chahan6u. Tmele mero mummy baba lai ni afai maneko ra mero mummy baba le ni tmelai afnai 6ora maneko herna chahan6u this is my biggest manifestation. I want to see you laugh , being happy with my family or we can our family 😁😁😁",
+"Lets prove to the world ki true love exists in this generation. Long distance ma ni loyal huna ak6an man6ey ra can fight for the love . Lets be the example for the world and show what exacly means and be the defination of love ❤️❤️❤️",
+"Main kura hami jati najik vaira6aam teti nai hamro jhagda badhiraa6. jhagada hunu ko matlab nai hamro relation kati gadha 6 vanney bujhin6 but lets solve our fight maturley. Lets not leave it in a ugly manner . jhagda huna thalesi lets be quiet dubai jana 1 minute lets take a deep breathe lets remeber our moments for that brief 1 minute and then start our conversation hai ta maya 😘😘😘",
+"I dont want you to compromise anything for me. Compromise kei garnai pardaina . I want to let you know that ki ma tmro laagi vanera kei compromise gareko 6aina dont ever feel guilty about it. Jhan tmele ta malai opportunity deko 6au to see the world and expand my vision. I really want to take this moment to thank you for that 😘😘😘",
+"At last but not the least please love me forever endlessly, infinetly. Be my support system, be my pillar. I love you mero pyarooooooo mutuuuuuuuuuuu ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️"
+];
+
+let game = document.getElementById("game");
+promises.forEach(p=>{
+  let h = document.createElement("span");
+  h.innerHTML="💖";
+  h.onclick=()=>alert(p);
+  game.appendChild(h);
+});
+
+const photos = document.querySelectorAll(".photo");
+const overlay = document.getElementById("photoOverlay");
+const fullPhoto = document.getElementById("fullPhoto");
+const heartsContainer = document.getElementById("heartsContainer");
+const closeBtn = document.getElementById("closeOverlay");
+
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.style.left = Math.random() * window.innerWidth + "px";
+  heart.style.animationDuration = (3 + Math.random()*3) + "s";
+  heart.style.width = 15 + Math.random()*70 + "px";
+  heart.style.height = heart.style.width;
+  heartsContainer.appendChild(heart);
+
+  // Remove after animation so DOM doesn't grow infinitely
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+
+photos.forEach(photo => {
+  photo.addEventListener("click", () => {
+    overlay.classList.add("show");
+    fullPhoto.src = photo.src;
+
+    
+    heartsInterval = setInterval(createHeart, 200);
+  });
+});
+
+// Close overlay
+closeBtn.addEventListener("click", () => {
+  overlay.classList.remove("show");
+  clearInterval(heartsInterval);
+  heartsContainer.innerHTML = ""; 
+});
+
+
+
+</script>
+
+
+
+
+<script src="chatbot.js"></script>
+<script src="game.js"></script>
+
+</body>
+</html>
